@@ -13,7 +13,7 @@ function UsersPage() {
     const fetchUsers = async () => {
       try {
         const token = localStorage.getItem("token"); // guardado en login
-        const res = await axios.get("http://localhost:3000/api/auth/users", {
+        const res = await axios.get("http://0.0.0.0:3000/api/auth/users", {
           headers: { Authorization: `Bearer ${token}` }
         });
         setUsers(res.data);
