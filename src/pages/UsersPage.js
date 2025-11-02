@@ -12,8 +12,9 @@ function UsersPage() {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const token = localStorage.getItem("token"); // guardado en login
-        const res = await axios.get("http://0.0.0.0:3000/api/auth/users", {
+        const token = localStorage.getItem("token");
+        // Cambia a ruta relativa - nginx redirige /api/ a tu backend
+        const res = await axios.get("/api/auth/users", {
           headers: { Authorization: `Bearer ${token}` }
         });
         setUsers(res.data);
