@@ -23,7 +23,7 @@ import LoginIcon from "@mui/icons-material/Login";
 import SensorsIcon from "@mui/icons-material/Sensors";
 
 function LoginPage() {
-  const [email, setEmail] = useState("");
+  const [username, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
