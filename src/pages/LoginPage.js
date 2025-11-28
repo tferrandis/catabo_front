@@ -23,7 +23,7 @@ import LoginIcon from "@mui/icons-material/Login";
 import SensorsIcon from "@mui/icons-material/Sensors";
 
 function LoginPage() {
-  const [Email, setEmail] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -37,7 +37,7 @@ function LoginPage() {
     
     try {
       const res = await axios.post("/api/admin", {
-        Email,
+        email,
         password,
       });
       localStorage.setItem("token", res.data.token);
