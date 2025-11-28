@@ -36,7 +36,7 @@ function LoginPage() {
     setError("");
     
     try {
-      const res = await axios.post("/api/auth/login", {
+      const res = await axios.post("/api/admin", {
         identifier,
         password,
       });
