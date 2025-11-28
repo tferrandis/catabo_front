@@ -16,14 +16,14 @@ import {
   CircularProgress,
 } from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import EmailIcon from "@mui/icons-material/Email";
+import usernameIcon from "@mui/icons-material/username";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import LoginIcon from "@mui/icons-material/Login";
 import SensorsIcon from "@mui/icons-material/Sensors";
 
 function LoginPage() {
-  const [username, setEmail] = useState("");
+  const [username, setusername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -37,7 +37,7 @@ function LoginPage() {
     
     try {
       const res = await axios.post("/api/auth/login", {
-        email,
+        username,
         password,
       });
       localStorage.setItem("token", res.data.token);
@@ -152,17 +152,17 @@ function LoginPage() {
           {/* Formulario */}
           <form onSubmit={handleLogin}>
             <TextField
-              label="Email"
+              label="username"
               variant="outlined"
               fullWidth
               margin="normal"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={username}
+              onChange={(e) => setusername(e.target.value)}
               disabled={loading}
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
-                    <EmailIcon sx={{ color: "rgba(255,255,255,0.5)" }} />
+                    <usernameIcon sx={{ color: "rgba(255,255,255,0.5)" }} />
                   </InputAdornment>
                 ),
               }}
@@ -246,7 +246,7 @@ function LoginPage() {
               variant="contained"
               fullWidth
               size="large"
-              disabled={loading || !email || !password}
+              disabled={loading || !username || !password}
               startIcon={
                 loading ? (
                   <CircularProgress size={20} sx={{ color: "inherit" }} />
