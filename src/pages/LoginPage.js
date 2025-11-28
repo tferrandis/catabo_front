@@ -16,14 +16,14 @@ import {
   CircularProgress,
 } from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import identifierIcon from "@mui/icons-material/Email";
+import EmailIcon from "@mui/icons-material/Email";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import LoginIcon from "@mui/icons-material/Login";
 import SensorsIcon from "@mui/icons-material/Sensors";
 
 function LoginPage() {
-  const [identifier, setidentifier] = useState("");
+  const [Email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -37,7 +37,7 @@ function LoginPage() {
     
     try {
       const res = await axios.post("/api/admin", {
-        identifier,
+        Email,
         password,
       });
       localStorage.setItem("token", res.data.token);
@@ -156,13 +156,13 @@ function LoginPage() {
               variant="outlined"
               fullWidth
               margin="normal"
-              value={identifier}
-              onChange={(e) => setidentifier(e.target.value)}
+              value={Email}
+              onChange={(e) => setEmail(e.target.value)}
               disabled={loading}
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
-                    <identifierIcon sx={{ color: "rgba(255,255,255,0.5)" }} />
+                    <EmailIcon sx={{ color: "rgba(255,255,255,0.5)" }} />
                   </InputAdornment>
                 ),
               }}
@@ -246,7 +246,7 @@ function LoginPage() {
               variant="contained"
               fullWidth
               size="large"
-              disabled={loading || !identifier || !password}
+              disabled={loading || !Email || !password}
               startIcon={
                 loading ? (
                   <CircularProgress size={20} sx={{ color: "inherit" }} />
