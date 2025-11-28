@@ -41,7 +41,7 @@ function UsersPage() {
       const res = await axios.get("/api/auth/users", {
         headers: { Authorization: `Bearer ${token}` },
       });
-      setUsers(res.data);
+        setUsers(Array.isArray(res.data) ? res.data : res.data.users || []);
     } catch (err) {
       console.error(err);
       if (err.response?.status === 401) {
