@@ -156,7 +156,7 @@ function LoginPage() {
               variant="outlined"
               fullWidth
               margin="normal"
-              value={Email}
+              value={email}
               onChange={(e) => setEmail(e.target.value)}
               disabled={loading}
               InputProps={{
@@ -246,7 +246,7 @@ function LoginPage() {
               variant="contained"
               fullWidth
               size="large"
-              disabled={loading || !Email || !password}
+              disabled={loading || !email || !password}
               startIcon={
                 loading ? (
                   <CircularProgress size={20} sx={{ color: "inherit" }} />
